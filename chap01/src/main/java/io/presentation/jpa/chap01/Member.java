@@ -5,7 +5,6 @@ import java.util.Objects;
 
 /**
  * @Author Minhyuk Yoon
- * 2018. 07. 23 Created By Minhyuk Yoon
  **/
 @Entity
 @Table(name = "member")

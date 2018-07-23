@@ -14,8 +14,8 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 /**
+ * Created by Minhyuk Yoon on 2018. 7. 23
  * @Author Minhyuk Yoon
- * 2018. 07. 23 Created By Minhyuk Yoon
  **/
 public class MemberTest {
 
