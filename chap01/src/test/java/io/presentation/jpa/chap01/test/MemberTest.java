@@ -15,8 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Minhyuk Yoon on 2018. 7. 23
- * @Author Minhyuk Yoon
- **/
+ */
 public class MemberTest {
 
     private EntityManagerFactory entityManagerFactory;

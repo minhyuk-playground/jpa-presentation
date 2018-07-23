@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.Objects;
 
 /**
- * @Author Minhyuk Yoon
- **/
+ * Created by Minhyuk Yoon on 2018. 7. 23
+ */
 @Entity
 @Table(name = "member")
 public class Member {
