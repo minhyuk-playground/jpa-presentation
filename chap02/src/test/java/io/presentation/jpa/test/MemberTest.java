@@ -106,6 +106,30 @@ public class MemberTest {
     }
 
     @Test
+    public void testFindAddress() {
+
+        wrapTryCatch(() -> {
+
+            //Given
+            String id = "id";
+            Address address = new Address("city", "street", "zipCode");
+            insertDummy(id, "nname", 27, address);
+
+            Member findMember = entityManager.find(Member.class, id);
+
+            //When
+            Address findAddress = findMember.getAddress();
+
+            //Then
+            assertEquals(findAddress.getZipCode(), address.getZipCode());
+            assertEquals(findAddress.getStreet(), address.getStreet());
+            assertEquals(findAddress.getCity(), address.getCity());
+
+            System.out.println("FIND ADDRESS : " + findAddress);
+        });
+    }
+
+    @Test
     public void testFindAll() {
 
         wrapTryCatch(() -> {
