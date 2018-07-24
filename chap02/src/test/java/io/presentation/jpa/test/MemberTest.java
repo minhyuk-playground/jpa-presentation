@@ -109,6 +109,7 @@ public class MemberTest {
     public void testFindAll() {
 
         wrapTryCatch(() -> {
+
             //Given
             int size = 100;
             insertDummies(size);
@@ -126,6 +127,7 @@ public class MemberTest {
     public void remove() {
 
         wrapTryCatch(() -> {
+
             //Given
             String id = "id";
             Address address = new Address("city", "street", "zipCode");
