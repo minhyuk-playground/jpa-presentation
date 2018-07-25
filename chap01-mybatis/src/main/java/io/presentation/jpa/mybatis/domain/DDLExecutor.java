@@ -1,42 +1,32 @@
-package io.presentation.jpa.jdbc;
+package io.presentation.jpa.mybatis.domain;
 
-import java.sql.*;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 /**
  * Created by Minhyuk Yoon on 2018. 7. 25.
  */
 public class DDLExecutor {
 
-    private final String driverClassName;
-    private final String user;
-    private final String password;
-    private final String url;
+    private DataSource dataSource;
 
-    public DDLExecutor() {
-        this.driverClassName = "com.mysql.jdbc.Driver";
-        this.user = "root";
-        this.password = "root";
-        this.url = "jdbc:mysql://127.0.0.1:3306/TestDB?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf8";
-
-        try {
-            Class.forName(driverClassName);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+    public DDLExecutor(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
     public void makeTable() {
-        try {
+        try{
             dropMemberTable();
             makeMemberTable();
-        } catch (Exception e) {
+        }catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     private void dropMemberTable() throws Exception {
 
-        Connection connection = DriverManager.getConnection(url, user, password);
+        Connection connection = dataSource.getConnection();
         String sql = "DROP TABLE IF EXISTS member";
 
         PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -47,8 +37,7 @@ public class DDLExecutor {
     }
 
     private void makeMemberTable() throws Exception {
-
-        Connection connection = DriverManager.getConnection(url, user, password);
+        Connection connection = dataSource.getConnection();
 
         StringBuilder builder = new StringBuilder();
         builder.append("CREATE TABLE member(")
