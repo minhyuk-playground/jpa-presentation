@@ -22,7 +22,7 @@ public class RootConfig {
 
         String driverClassName = "com.mysql.jdbc.Driver";
         String userName = "root";
-        String password = "root";
+        String password = "";
         String url = "jdbc:mysql://127.0.0.1:3306/TestDB?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf8";
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
