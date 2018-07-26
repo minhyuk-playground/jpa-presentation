@@ -166,6 +166,32 @@ public class MemberTest {
         });
     }
 
+    @Test
+    public void testFindFind() {
+        wrapTryCatch(() -> {
+
+            //Given
+            String id = "id";
+            String name = "makeus";
+            int age = 27;
+
+            String city = "seoul";
+            String street = "street";
+            String zipCode = "123-123";
+
+            Address address = new Address(city, street, zipCode);
+            Member member = new Member(id, name, age, address);
+
+            entityManager.persist(member);
+            entityManager.flush();
+            entityManager.clear();
+
+            //When & Then => Hibernate SQL Log를 직접 눈으로 확인하자!!! select 문은 1번 수행되어질 것이다~
+            entityManager.find(Member.class, id);
+            entityManager.find(Member.class, id);
+        });
+    }
+
 
     private Member insertDummy(String id, String name, int age, Address address) {
         Member member = new Member(id, name, age, address);

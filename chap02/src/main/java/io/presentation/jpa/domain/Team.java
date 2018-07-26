@@ -1,31 +1,39 @@
 package io.presentation.jpa.domain;
 
+import javax.persistence.*;
+
 /**
  * Created by Minhyuk Yoon on 2018. 7. 25.
  */
+@Entity
+@Table(name = "team")
 public class Team {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "team_id")
+    private long teamId;
+
+    @Column(name = "name")
     private String name;
 
-    public Team() {
+    protected Team() {
     }
 
-    public Team(long id, String name) {
-        this.id = id;
+    public Team(String name) {
         this.name = name;
     }
 
-    public long getId() {
-        return id;
+    public long getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(long teamId) {
+        this.teamId = teamId;
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public void setName(String name) {

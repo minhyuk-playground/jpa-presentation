@@ -18,7 +18,7 @@ public class JdbcContext {
     public JdbcContext() {
         this.driverClassName = "com.mysql.jdbc.Driver";
         this.user = "root";
-        this.password = "root";
+        this.password = "";
         this.url = "jdbc:mysql://127.0.0.1:3306/TestDB?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf8";
     }
 
