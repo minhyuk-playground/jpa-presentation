@@ -32,17 +32,19 @@ public class MemberTest {
     @Test
     public void testPersist() {
 
-        wrapTryCatch(() -> {
+        try {
+            transaction.begin();
 
             //Given
             String id = "id";
             String name = "name";
             int age = 10;
 
+            //비영속 상태
             Member member = new Member(id, name, age);
 
             //When
-            entityManager.persist(member);  // INSERT
+            entityManager.persist(member);  // 영속상태 + 1차 캐시 저장
 
             Member findMember = entityManager.find(Member.class, member.getId()); // SELECT 1건
 
@@ -52,7 +54,14 @@ public class MemberTest {
             assertTrue(member.getName().equals(findMember.getName()));
             assertTrue(member.getAge() == findMember.getAge());
 
-        });
+            transaction.commit();   //쓰기 지연 SQL 저장소 Query DB 반영 (사실 commit 바로 직전에 flush() 메소드가 호출되어 DB와 동기화됌)
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+        entityManagerFactory.close();
     }
 
     @Test

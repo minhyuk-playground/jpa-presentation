@@ -43,7 +43,7 @@ public class RMemberDAO {
 
         return jdbcContext.executeQuery(connection -> {
                     String sql = "SELECT * FROM member WHERE id=?";
-
+]
                     PreparedStatement preparedStatement = connection.prepareStatement(sql);
                     preparedStatement.setString(1, id);
 

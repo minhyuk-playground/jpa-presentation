@@ -1,7 +1,7 @@
-package io.presentation.jpa.paradigm.problem.inheritance;
+package io.presentation.jpa.jdbc.paradigm.problem.inheritence;
 
 /**
- * Created By Minhyuk Yoon on 2018. 7. 26.
+ * Created By Minhyuk Yoon on 2018. 7. 27.
  */
 public class Book extends Item{
 

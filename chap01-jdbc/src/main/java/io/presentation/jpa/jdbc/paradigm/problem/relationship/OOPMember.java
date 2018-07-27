@@ -1,12 +1,12 @@
-package io.presentation.jpa.paradigm.problem.relationship;
+package io.presentation.jpa.jdbc.paradigm.problem.relationship;
 
 /**
  * Created By Minhyuk Yoon on 2018. 7. 26.
  */
-public class TblMember {
+public class OOPMember {
 
     private String id;
-    private long teamId;    //Team 테이블의 team_id 컬럼을 그대로 사용, member.getTeam()으로 연관 객체인 Team 참조 불가능!!
+    private OOPTeam team;       //객체 중심의 모델링. member.getTeam()으로 조회 연관객체인 Team 조회 가능
     private String name;
     private int age;
 
@@ -18,12 +18,12 @@ public class TblMember {
         this.id = id;
     }
 
-    public long getTeamId() {
-        return teamId;
+    public OOPTeam getTeam() {
+        return team;
     }
 
-    public void setTeamId(long teamId) {
-        this.teamId = teamId;
+    public void setTeam(OOPTeam team) {
+        this.team = team;
     }
 
     public String getName() {

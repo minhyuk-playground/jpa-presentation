@@ -1,4 +1,4 @@
-package io.presentation.jpa.paradigm.problem.relationship;
+package io.presentation.jpa.jdbc.paradigm.problem.relationship;
 
 /**
  * Created By Minhyuk Yoon on 2018. 7. 26.
