@@ -24,6 +24,10 @@ public class Member {
     @Column(name = "address")
     private Address address;
 
+    @ManyToOne
+    @JoinColumn(name = "teamId", referencedColumnName = "team_id")
+    private Team team;
+
     protected Member() {
     }
 
@@ -66,6 +70,14 @@ public class Member {
 
     public Address getAddress() {
         return address;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public Team getTeam() {
+        return team;
     }
 
     @Override

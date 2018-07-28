@@ -192,7 +192,6 @@ public class MemberTest {
         });
     }
 
-
     private Member insertDummy(String id, String name, int age, Address address) {
         Member member = new Member(id, name, age, address);
         entityManager.persist(member);
