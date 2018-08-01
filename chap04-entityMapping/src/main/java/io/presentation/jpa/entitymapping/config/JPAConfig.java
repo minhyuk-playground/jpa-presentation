@@ -67,6 +67,7 @@ public class JPAConfig {
         properties.setProperty("hibernate.use_sql_comments", environment.getProperty("hibernate.use_sql_comments"));
         properties.setProperty("hibernate.id.new_generator_mappings", environment.getProperty("hibernate.id.new_generator_mappings"));
         properties.setProperty("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
+        properties.setProperty("hibernate.ejb.naming_strategy", environment.getProperty("hibernate.ejb.naming_strategy"));
         properties.setProperty("hibernate.discriminator.ignore_explicit_for_joined", environment.getProperty("hibernate.discriminator.ignore_explicit_for_joined"));
 
         return properties;
