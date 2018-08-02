@@ -26,7 +26,7 @@ import java.util.Properties;
         DataSourceConfig.class
 })
 @EnableTransactionManagement(proxyTargetClass = true)
-@EnableJpaRepositories(basePackages = "${base.package}.${base.service.package}.entity")
+@EnableJpaRepositories(basePackages = "${base.package}.${base.service.package}.repository")
 public class JPAConfig {
 
     @Autowired
