@@ -35,7 +35,6 @@ public class JPAConfig {
     @Autowired
     private Environment environment;
 
-
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         return new HibernateJpaVendorAdapter();
